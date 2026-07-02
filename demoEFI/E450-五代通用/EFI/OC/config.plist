@@ -399,6 +399,10 @@
             <dict>
                 <key>AllowRelocationBlock</key>
                 <false/>
+                <key>ClearTaskSwitchBit</key>
+                <false/>
+                <key>FixupAppleEfiImages</key>
+                <false/>
                 <key>AvoidRuntimeDefrag</key>
                 <true/>
                 <key>DevirtualiseMmio</key>
@@ -496,7 +500,7 @@
                     <key>AAPL,slot-name</key>
                     <string>Internal@0,2,0</string>
                     <key>device-id</key>
-                    <data>JhYAAA==</data>
+                    <data>EgQAAA==</data>
                     <key>device_type</key>
                     <string>VGA compatible controller</string>
                     <key>disable-external-gpu</key>
@@ -510,11 +514,11 @@
                     <key>framebuffer-con0-enable</key>
                     <data>AQAAAA==</data>
                     <key>framebuffer-con0-flags</key>
-                    <data>MAIAAA==</data>
+                    <data>MAAAAA==</data>
                     <key>framebuffer-con0-index</key>
                     <data>AAAAAA==</data>
                     <key>framebuffer-con0-pipe</key>
-                    <data>CAAAAA==</data>
+                    <data>EgAAAA==</data>
                     <key>framebuffer-con0-type</key>
                     <data>AgAAAA==</data>
                     <key>framebuffer-con1-busid</key>
@@ -522,23 +526,23 @@
                     <key>framebuffer-con1-enable</key>
                     <data>AQAAAA==</data>
                     <key>framebuffer-con1-flags</key>
-                    <data>BwUAAA==</data>
+                    <data>BAAAAA==</data>
                     <key>framebuffer-con1-index</key>
                     <data>AQAAAA==</data>
                     <key>framebuffer-con1-pipe</key>
-                    <data>CQAAAA==</data>
+                    <data>EgAAAA==</data>
                     <key>framebuffer-con1-type</key>
-                    <data>AAQAAA==</data>
+                    <data>AQAAAA==</data>
                     <key>framebuffer-con2-busid</key>
                     <data>BAAAAA==</data>
                     <key>framebuffer-con2-enable</key>
                     <data>AQAAAA==</data>
                     <key>framebuffer-con2-flags</key>
-                    <data>BwUAAA==</data>
+                    <data>ggAAAA==</data>
                     <key>framebuffer-con2-index</key>
                     <data>AgAAAA==</data>
                     <key>framebuffer-con2-pipe</key>
-                    <data>CgAAAA==</data>
+                    <data>EgAAAA==</data>
                     <key>framebuffer-con2-type</key>
                     <data>AAgAAA==</data>
                     <key>framebuffer-con3-busid</key>
@@ -553,8 +557,12 @@
                     <data>AAAAAA==</data>
                     <key>framebuffer-con3-type</key>
                     <data>AQAAAA==</data>
+                    <key>framebuffer-cursormem</key>
+                    <data>AACQAA==</data>
                     <key>framebuffer-fbmem</key>
                     <data>AACQAA==</data>
+                    <key>framebuffer-memorycount</key>
+                    <data>AgAAAA==</data>
                     <key>framebuffer-patch-enable</key>
                     <data>AQAAAA==</data>
                     <key>framebuffer-stolenmem</key>
@@ -564,7 +572,7 @@
                     <key>hda-gfx</key>
                     <string>onboard-1</string>
                     <key>model</key>
-                    <string>Intel Graphics HD 5500</string>
+                    <string>Intel Graphics HD 4400</string>
                 </dict>
             </dict>
             <key>Delete</key>
@@ -1327,6 +1335,8 @@
                 <false/>
                 <key>DisableIoMapper</key>
                 <true/>
+                <key>DisableIoMapperMapping</key>
+                <false/>
                 <key>DisableLinkeditJettison</key>
                 <true/>
                 <key>DisableRtcChecksum</key>
@@ -1380,8 +1390,12 @@
                 <integer>0</integer>
                 <key>HibernateMode</key>
                 <string>Auto</string>
-                <key>HideAuxiliary</key>
+                <key>HibernateSkipsPicker</key>
                 <false/>
+                <key>HideAuxiliary</key>
+                <true/>
+                <key>InstanceIdentifier</key>
+                <string></string>
                 <key>LauncherOption</key>
                 <string>Disabled</string>
                 <key>LauncherPath</key>
@@ -1445,11 +1459,7 @@
             </array>
             <key>Security</key>
             <dict>
-                <key>AllowNvramReset</key>
-                <true/>
                 <key>AllowSetDefault</key>
-                <true/>
-                <key>AllowToggleSip</key>
                 <true/>
                 <key>ApECID</key>
                 <integer>0</integer>
@@ -1489,13 +1499,15 @@
                     <key>Arguments</key>
                     <string></string>
                     <key>Auxiliary</key>
-                    <false/>
+                    <true/>
                     <key>Comment</key>
                     <string>Not signed for security reasons</string>
                     <key>Enabled</key>
-                    <true/>
+                    <false/>
                     <key>Flavour</key>
                     <string>OpenShell:UEFIShell:Shell</string>
+                    <key>FullNvramAccess</key>
+                    <false/>
                     <key>Name</key>
                     <string>by:2915441170</string>
                     <key>Path</key>
@@ -1530,7 +1542,7 @@
                     <key>SystemAudioVolume</key>
                     <data>Rg==</data>
                     <key>boot-args</key>
-                    <string></string>
+                    <string>-v keepsyms=1 debug=0x100</string>
                     <key>csr-active-config</key>
                     <data>AAAAAA==</data>
                     <key>prev-lang:kbd</key>
@@ -1556,8 +1568,6 @@
                     <string>ForceDisplayRotationInEFI</string>
                 </array>
             </dict>
-            <key>LegacyEnable</key>
-            <false/>
             <key>LegacyOverwrite</key>
             <false/>
             <key>LegacySchema</key>
@@ -1633,13 +1643,13 @@
                 <key>AdviseFeatures</key>
                 <false/>
                 <key>MLB</key>
-                <string>C02808501GUJH4R1H</string>
+                <string>C02504303CDFH318C</string>
                 <key>MaxBIOSVersion</key>
                 <false/>
                 <key>ProcessorType</key>
                 <integer>1793</integer>
                 <key>ROM</key>
-                <data>NAKGNN9p</data>
+                <data>aPconQky</data>
                 <key>SpoofVendor</key>
                 <true/>
                 <key>SystemMemoryStatus</key>
@@ -1660,9 +1670,9 @@
                 <key>FirmwareFeaturesMask</key>
                 <data>P/+f/wgAAAA=</data>
                 <key>MLB</key>
-                <string>C02808501GUJH4R1H</string>
+                <string>C02504303CDFH318C</string>
                 <key>ROM</key>
-                <data>NAKGNN9p</data>
+                <data>aPconQky</data>
                 <key>SystemSerialNumber</key>
                 <string>C02W9EZ2JHCC</string>
                 <key>SystemUUID</key>
@@ -1685,7 +1695,7 @@
                 <key>BoardProduct</key>
                 <string>Mac-827FB448E656EC26</string>
                 <key>BoardSerialNumber</key>
-                <string>C02808501GUJH4R1H</string>
+                <string>C02504303CDFH318C</string>
                 <key>BoardType</key>
                 <integer>10</integer>
                 <key>BoardVersion</key>
@@ -1775,6 +1785,12 @@
                 <integer>1</integer>
                 <key>PointerSpeedMul</key>
                 <integer>1</integer>
+                <key>PointerDwellClickTimeout</key>
+                <integer>0</integer>
+                <key>PointerDwellDoubleClickTimeout</key>
+                <integer>0</integer>
+                <key>PointerDwellRadius</key>
+                <integer>0</integer>
             </dict>
             <key>Audio</key>
             <dict>
@@ -1812,8 +1828,10 @@
                     <string></string>
                     <key>Enabled</key>
                     <true/>
+                    <key>LoadEarly</key>
+                    <false/>
                     <key>Path</key>
-                    <string>HfsPlus.efi</string>
+                    <string>OpenHfsPlus.efi</string>
                 </dict>
                 <dict>
                     <key>Arguments</key>
@@ -1822,20 +1840,14 @@
                     <string></string>
                     <key>Enabled</key>
                     <true/>
+                    <key>LoadEarly</key>
+                    <false/>
                     <key>Path</key>
                     <string>OpenRuntime.efi</string>
                 </dict>
-                <dict>
-                    <key>Arguments</key>
-                    <string></string>
-                    <key>Comment</key>
-                    <string></string>
-                    <key>Enabled</key>
-                    <true/>
-                    <key>Path</key>
-                    <string>OpenCanopy.efi</string>
-                </dict>
             </array>
+            <key>Unload</key>
+            <array/>
             <key>Input</key>
             <dict>
                 <key>KeyFiltering</key>
@@ -1859,16 +1871,22 @@
             <dict>
                 <key>ClearScreenOnModeSwitch</key>
                 <false/>
+                <key>ConsoleFont</key>
+                <string></string>
                 <key>ConsoleMode</key>
                 <string></string>
                 <key>DirectGopRendering</key>
                 <false/>
                 <key>ForceResolution</key>
                 <false/>
+                <key>GopBurstMode</key>
+                <false/>
                 <key>GopPassThrough</key>
                 <string>Disabled</string>
                 <key>IgnoreTextInGraphics</key>
                 <false/>
+                <key>InitialMode</key>
+                <string>Auto</string>
                 <key>ProvideConsoleGop</key>
                 <true/>
                 <key>ReconnectGraphicsOnConnect</key>
@@ -1926,6 +1944,8 @@
                 <false/>
                 <key>UnicodeCollation</key>
                 <false/>
+                <key>PciIo</key>
+                <false/>
             </dict>
             <key>Quirks</key>
             <dict>
@@ -1953,6 +1973,10 @@
                 <true/>
                 <key>ResizeGpuBars</key>
                 <integer>-1</integer>
+                <key>ResizeUsePciRbIo</key>
+                <false/>
+                <key>ShimRetainProtocol</key>
+                <false/>
                 <key>TscSyncTimeout</key>
                 <integer>0</integer>
                 <key>UnblockFsConnect</key>
